@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
+
 import "./index.css";
+import API from "./api/core";
 
 function AxiosApi() {
   let [photos, setPhotos] = useState([]);
 
   function searchApi() {
-    const url = "https://aws.random.cat/meow?ref=apilist.fun";
-    axios
-      .get(url)
+    API.get("photo")
       .then(function (response) {
         setPhotos(response.data.file);
         console.log("성공");
